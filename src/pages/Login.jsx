@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Login = () => {
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  return (
+    <section className="  ">
+      <div className="container">
+        <h2>Sign In</h2>
+        <form action="" className="form register_form">
+          <p className="form_error-message">This is an error message</p>
+
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+            autoFocus
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+            autoFocus
+          />
+
+          <button className="btn primary">Login</button>
+        </form>
+        <small>
+          If you dont have an account <Link to="/register">Sign Up</Link>
+        </small>
+      </div>
+    </section>
+  );
+};
+
+export default Login;
